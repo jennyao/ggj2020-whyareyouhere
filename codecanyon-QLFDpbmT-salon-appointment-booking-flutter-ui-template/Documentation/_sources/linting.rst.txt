@@ -1,0 +1,10 @@
+===============
+Code Formatting
+===============
+
+Two of the nice additions to programming languages in recent years are pragmatic defaults for code formatting, and linting for known problematic code patterns. 
+For code formatting, you can use ``flutter format``, although you can probably configure your code editor to run this on a certain key combination, or on file save.
+
+For linting, Dart provides the ability to configure a `customized code linter <https://dart.dev/guides/language/analysis-options>`_.
+
+A file in the root of the project called ``analysis_options.yaml`` specifies the analysis options used by Flutter tools, such as IntelliJ, Android Studio, and the ``flutter analyze`` command.

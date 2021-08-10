@@ -1,0 +1,176 @@
+============
+Localization
+============
+
+Salon Flutter template supports localization, including message translation, plurals and genders, date/number formatting and parsing, and bidirectional text.
+
+Localization is implemented using **Flutter Intl** plugin created by `Localizely <https://localizely.com/>`_. This plugin is available for `IntelliJ IDEA / Android Studio <https://plugins.jetbrains.com/plugin/13666-flutter-intl>`_ and `Visual Studio Code <https://marketplace.visualstudio.com/items?itemName=localizely.flutter-intl>`_.
+
+.. note::
+
+    Don’t confuse the `Intl <https://pub.dev/packages/intl>`_ package with the Flutter Intl IDE plugin. The latter handles generating the classes that use the former. 
+
+Install Flutter Intl
+====================
+
+VS Code
+-------
+
+* Bring up the Extensions view by clicking on the Extensions icon in the Activity Bar on the side of VS Code or the View: Extensions command. 
+* Type ``intl`` in the Search box and press ENTER. 
+* Locate the Flutter Intl plugin in the list and click on the green Install button.
+
+.. image:: _static/vsc-install-intl.png
+
+Android Studio
+--------------
+
+* Open Android Studio’s preferences by pressing Command+(comma) on macOS or Control+Alt+S on Linux or Windows.
+* Select Plugins on the left-side panel and Marketplace in the upper tab bar. 
+* Type ``intl`` in the search bar.
+* Locate the Flutter Intl plugin in the search result list and click on the green Install button.
+
+.. image:: _static/astudio-install-intl.png
+
+
+Package dependencies
+====================
+
+Plugin is configured through package dependencies specified in ``pubmed.yaml``:
+
+.. code-block:: yaml
+
+    dependencies:
+    flutter:
+        sdk: flutter
+    flutter_localizations:
+        sdk: flutter
+    flutter_intl:
+        enabled: true # Required. Must be set to true to activate the plugin. Default: false
+        class_name: L10n # Optional. Sets the name for the generated localization class. Default: S
+        main_locale: en # Optional. Sets the main locale used for generating localization files. Provided value should consist of language code and optional script and country codes separated with underscore (e.g. 'en', 'en_GB', 'zh_Hans', 'zh_Hans_CN'). Default: en
+
+By default ``en`` locale is added by auto-creating a file ``lib/l10n/intl_en.arb``.
+
+.. warning::
+
+    The plugin generates and maintains files inside ``lib/generated/`` folder which you should not edit manually. 
+    But you should keep these files in your project repository.
+
+App setup
+=========
+
+Locate the ``lib/main_app.dart`` file. Setup your ``localizationsDelegates`` and your ``supportedLocales`` which will allow to access the strings.
+
+.. code-block:: dart
+    :emphasize-lines: 6-16
+
+    import 'generated/l10n.dart';
+    import 'package:flutter_localizations/flutter_localizations.dart';
+
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        supportedLocales: L10n.delegate.supportedLocales, # Supported locales
+        localizationsDelegates: const <LocalizationsDelegate<dynamic>>[
+            L10n.delegate, # Localization delegate class
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+            FallbackCupertinoLocalisationsDelegate(),
+        ],
+        localeResolutionCallback: (Locale locale, Iterable<Locale> supportedLocales) {
+            return kDefaultLocale;
+        },
+        navigatorObservers: <NavigatorObserver>[routeObserver],
+        onGenerateRoute: route.generateRoute,
+        theme: getIt.get<AppTheme>().lightTheme,
+        darkTheme: getIt.get<AppTheme>().darkTheme,
+        home: homeWidget,
+    );
+
+To enable localization for iOS apps, extend ``ios/Runner/Info.plist`` file with supported locales configuration. This list should be consistent with the locales listed in the ``lib/l10n`` folder.
+
+.. code-block:: xml
+
+    <key>CFBundleLocalizations</key>
+    <array>
+        <string>en</string>
+        <string>de_DE</string>
+        ...
+    </array>
+
+Adding new locales
+==================
+
+You can always add more locales when needed. 
+For Visual Studio Code use the command **Flutter Intl: Add locale**. For Android Studio select **Tools > Flutter Intl > Add Locale**. 
+Type in the language code (e.g. de_DE) an press enter (click on OK button).
+
+The ``lib/l10n`` folder will contain a new file — intl_XX.arb where XX is the language code you just typed in. Don't forget to include this language code into iOS' Info.plist file as well!
+
+ARB files
+=========
+
+ARB files extension stands for Application Resource Bundle and is used by the Dart Intl package. It is actually a JSON file intended for localization, with ``.arb`` extension. Since it is based on JSON, it just defines standardized ways how to add more information around key-value pairs.
+It is supported by Google and is official localization library for Dart.
+
+.. note::
+    When you add new key-value pairs to an ``.arb`` file and save it, those keys will be automatically available for auto-complete in your Dart code.
+
+Specific features for ARB file relevant for Flutter apps are:
+
+Placeholders
+------------
+
+Placeholder is marked by curly brackets. Variable name inside ``{}`` must be a valid identifier, like ``{firstName}``.
+
+Plurals
+-------
+
+Plurals are defined with `ICU syntax <http://userguide.icu-project.org/formatparse/messages>`_.
+
+::
+
+    "homeInboxCount" : "{count, plural, zero{You have no new messages} one{You have 1 new message} other{You have {count} new messages}}",
+
+Selects
+-------
+
+Custom selects are defined with `ICU syntax <http://userguide.icu-project.org/formatparse/messages>`_.
+
+::
+
+    "commonDarkMode": "{mode, select, dynamic {Dynamic} alwaysOn {Always on} alwaysOff {Always off} other {Unknown}}",
+
+``other`` option must be defined!
+
+Newlines
+--------
+
+A new line must be escaped with a `\n` character.
+
+::
+
+    "homeTitle": "Welcome,\n{firstName}",
+
+
+Localizing Dart code
+====================
+
+The ARB file's keys now correspond to methods from the ``S`` class (``L10n`` in our case). For example:
+
+::
+
+    "signInButtonLogin": "Login",
+
+is used in ``ThemeButton`` widget like this:
+
+.. code-block:: dart
+    :emphasize-lines: 3
+
+    ThemeButton(
+        onPressed: _validateForm,
+        text: L10n.of(context).signInButtonLogin,
+        showLoading: login is ProcessingAuthState,
+        disableTouchWhenLoading: true,
+    ),

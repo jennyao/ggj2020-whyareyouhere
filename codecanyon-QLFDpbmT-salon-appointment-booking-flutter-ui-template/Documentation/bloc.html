@@ -1,0 +1,346 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>BLoC Design Pattern &mdash; Salon Flutter UI Template 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Project Renaming" href="renaming.html" />
+    <link rel="prev" title="Design" href="design.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Salon Flutter UI Template
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="get_started.html">Get Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structure.html">Source Folder Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linting.html">Code Formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="localization.html">Localization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design.html">Design</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">BLoC Design Pattern</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bloc-widgets">Bloc Widgets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#blocbuilder">BlocBuilder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#blocprovider">BlocProvider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multiblocprovider">MultiBlocProvider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bloclistener">BlocListener</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="renaming.html">Project Renaming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Salon Flutter UI Template</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>BLoC Design Pattern</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/bloc.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="bloc-design-pattern">
+<h1>BLoC Design Pattern<a class="headerlink" href="#bloc-design-pattern" title="Permalink to this headline">¶</a></h1>
+<p><strong>BLoC</strong> stands for Business Logic Components. It helps us to:</p>
+<ul class="simple">
+<li>separate presentation from business logic.</li>
+<li>know what state our application is in at any point in time.</li>
+<li>record every single user interaction in our application so that we can make data-driven decisions.</li>
+<li>work as efficiently as possible and reuse components both within our application and across other applications.</li>
+</ul>
+<p>and many more.</p>
+<p>BLoCs receive <cite>events</cite> and convert the incoming <cite>events</cite> into outgoing <cite>states</cite>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">To learn more about BLoC pattern visit <a class="reference external" href="https://bloclibrary.dev/#/gettingstarted">bloclibrary.dev</a>.</p>
+</div>
+<div class="section" id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<p>BLoC consists of two pub packages added to <code class="docutils literal notranslate"><span class="pre">pubspec.yaml</span></code>:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://pub.dev/packages/bloc">bloc</a> - Core bloc library</li>
+<li><a class="reference external" href="https://pub.dev/packages/flutter_bloc">flutter_bloc</a> - Powerful Flutter Widgets built to work with bloc in order to build fast, reactive mobile applications.</li>
+</ul>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">dependencies</span><span class="p">:</span>
+    <span class="nt">bloc</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">^6.0.3</span>
+    <span class="nt">flutter_bloc</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">^6.0.5</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="bloc-widgets">
+<h2>Bloc Widgets<a class="headerlink" href="#bloc-widgets" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="blocbuilder">
+<h3>BlocBuilder<a class="headerlink" href="#blocbuilder" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">BlocBuilder</span></code> is a Flutter widget which requires a cubit and a builder function. <code class="docutils literal notranslate"><span class="pre">BlocBuilder</span></code> handles building the widget in response to new states.
+The <code class="docutils literal notranslate"><span class="pre">builder</span></code> function will potentially be called many times and should be a pure function that returns a widget in response to the state.</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="n">BlocBuilder</span><span class="o">&lt;</span><span class="n">CitiesBloc</span><span class="p">,</span> <span class="n">CitiesState</span><span class="o">&gt;</span><span class="p">(</span>
+    <span class="nl">builder:</span> <span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">,</span> <span class="n">CitiesState</span> <span class="n">state</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">state</span> <span class="k">is</span> <span class="n">RefreshSuccessCitiesState</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">_cities</span> <span class="o">=</span> <span class="n">state</span><span class="p">.</span><span class="n">cities</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">LoadingOverlay</span><span class="p">(</span>
+            <span class="nl">isLoading:</span> <span class="n">state</span> <span class="k">is</span> <span class="n">LoadInProgressCitiesState</span><span class="p">,</span>
+            <span class="nl">child:</span> <span class="n">_buildList</span><span class="p">(</span><span class="n">context</span><span class="p">),</span>
+        <span class="p">);</span>
+    <span class="p">},</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<p>For fine-grained control over when the builder function is called an optional <code class="docutils literal notranslate"><span class="pre">buildWhen</span></code> can be provided. <code class="docutils literal notranslate"><span class="pre">buildWhen</span></code> takes the previous cubit state and current cubit state and returns a boolean. If <code class="docutils literal notranslate"><span class="pre">buildWhen</span></code> returns true, builder will be called with state and the widget will rebuild. If <code class="docutils literal notranslate"><span class="pre">buildWhen</span></code> returns false, builder will not be called with state and no rebuild will occur.</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="n">BlocBuilder</span><span class="o">&lt;</span><span class="n">AuthBloc</span><span class="p">,</span> <span class="n">AuthState</span><span class="o">&gt;</span><span class="p">(</span>
+    <span class="nl">buildWhen:</span> <span class="p">(</span><span class="n">AuthState</span> <span class="n">previousState</span><span class="p">,</span> <span class="n">AuthState</span> <span class="n">currentState</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">currentState</span> <span class="k">is</span> <span class="n">PreferenceSaveSuccessAuthState</span><span class="p">;</span>
+    <span class="p">},</span>
+    <span class="nl">builder:</span> <span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">,</span> <span class="n">AuthState</span> <span class="n">state</span><span class="p">)</span> <span class="p">{</span>
+        <span class="p">...</span>
+    <span class="p">},</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="blocprovider">
+<h3>BlocProvider<a class="headerlink" href="#blocprovider" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">BlocProvider</span></code> is a Flutter widget which provides a cubit to its children via <code class="docutils literal notranslate"><span class="pre">BlocProvider.of&lt;T&gt;(context)</span></code>.
+It is used as a dependency injection (DI) widget so that a single instance of a cubit can be provided to multiple widgets within a subtree.</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="n">BlocProvider</span><span class="p">.</span><span class="n">of</span><span class="o">&lt;</span><span class="n">FavoritesBloc</span><span class="o">&gt;</span><span class="p">(</span><span class="n">context</span><span class="p">).</span><span class="n">add</span><span class="p">(</span><span class="n">DataLoadedFavoritesEvent</span><span class="p">());</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="multiblocprovider">
+<h3>MultiBlocProvider<a class="headerlink" href="#multiblocprovider" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">MultiBlocProvider</span></code> is a Flutter widget that merges multiple <code class="docutils literal notranslate"><span class="pre">BlocProvider</span></code> widgets into one.
+<code class="docutils literal notranslate"><span class="pre">MultiBlocProvider</span></code> improves the readability and eliminates the need to nest multiple <code class="docutils literal notranslate"><span class="pre">BlocProviders</span></code>.</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="n">MultiBlocProvider</span><span class="p">(</span>
+    <span class="nl">providers:</span> <span class="o">&lt;</span><span class="n">BlocProvider</span><span class="o">&lt;</span><span class="kt">dynamic</span><span class="o">&gt;&gt;</span><span class="p">[</span>
+        <span class="n">BlocProvider</span><span class="o">&lt;</span><span class="n">ApplicationBloc</span><span class="o">&gt;</span><span class="p">(</span><span class="nl">create:</span> <span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">_applicationBloc</span><span class="p">),</span>
+        <span class="n">BlocProvider</span><span class="o">&lt;</span><span class="n">AuthBloc</span><span class="o">&gt;</span><span class="p">(</span><span class="nl">create:</span> <span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">_authBloc</span><span class="p">),</span>
+        <span class="n">BlocProvider</span><span class="o">&lt;</span><span class="n">SearchBloc</span><span class="o">&gt;</span><span class="p">(</span><span class="nl">create:</span> <span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">_searchBloc</span><span class="p">),</span>
+        <span class="n">BlocProvider</span><span class="o">&lt;</span><span class="n">CitiesBloc</span><span class="o">&gt;</span><span class="p">(</span><span class="nl">create:</span> <span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">_citiesBloc</span><span class="p">),</span>
+        <span class="n">BlocProvider</span><span class="o">&lt;</span><span class="n">LanguageBloc</span><span class="o">&gt;</span><span class="p">(</span><span class="nl">create:</span> <span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">_languageBloc</span><span class="p">),</span>
+        <span class="n">BlocProvider</span><span class="o">&lt;</span><span class="n">ThemeBloc</span><span class="o">&gt;</span><span class="p">(</span><span class="nl">create:</span> <span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">_themeBloc</span><span class="p">),</span>
+        <span class="n">BlocProvider</span><span class="o">&lt;</span><span class="n">AppointmentBloc</span><span class="o">&gt;</span><span class="p">(</span><span class="nl">create:</span> <span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">_appointmentBloc</span><span class="p">),</span>
+        <span class="n">BlocProvider</span><span class="o">&lt;</span><span class="n">FavoritesBloc</span><span class="o">&gt;</span><span class="p">(</span><span class="nl">create:</span> <span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">_favoritesBloc</span><span class="p">),</span>
+        <span class="n">BlocProvider</span><span class="o">&lt;</span><span class="n">LoyaltyBloc</span><span class="o">&gt;</span><span class="p">(</span><span class="nl">create:</span> <span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">_loyaltyBloc</span><span class="p">),</span>
+        <span class="n">BlocProvider</span><span class="o">&lt;</span><span class="n">BookingBloc</span><span class="o">&gt;</span><span class="p">(</span><span class="nl">create:</span> <span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">_bookingBloc</span><span class="p">),</span>
+        <span class="n">BlocProvider</span><span class="o">&lt;</span><span class="n">RatingsBloc</span><span class="o">&gt;</span><span class="p">(</span><span class="nl">create:</span> <span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">_ratingsBloc</span><span class="p">),</span>
+        <span class="n">BlocProvider</span><span class="o">&lt;</span><span class="n">ChatBloc</span><span class="o">&gt;</span><span class="p">(</span><span class="nl">create:</span> <span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="n">_chatBloc</span><span class="p">),</span>
+  <span class="p">],</span>
+  <span class="nl">child:</span> <span class="p">...</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="bloclistener">
+<h3>BlocListener<a class="headerlink" href="#bloclistener" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">BlocListener</span></code> is a Flutter widget which invokes the <code class="docutils literal notranslate"><span class="pre">listener</span></code> in response to state changes in the cubit.
+It should be used for functionality that needs to occur once per state change such as navigation, showing a <code class="docutils literal notranslate"><span class="pre">SnackBar</span></code>, showing a <code class="docutils literal notranslate"><span class="pre">Dialog</span></code>, etc…</p>
+<p><code class="docutils literal notranslate"><span class="pre">listener</span></code> is only called once for each state change (NOT including the initial state) unlike builder in <code class="docutils literal notranslate"><span class="pre">BlocBuilder</span></code> and is a void function.</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="n">BlocListener</span><span class="o">&lt;</span><span class="n">LoyaltyBloc</span><span class="p">,</span> <span class="n">LoyaltyState</span><span class="o">&gt;</span><span class="p">(</span>
+    <span class="nl">listener:</span> <span class="p">(</span><span class="n">BuildContext</span> <span class="n">context</span><span class="p">,</span> <span class="n">LoyaltyState</span> <span class="n">state</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">state</span> <span class="k">is</span> <span class="n">VoucherLoadSuccessLoyaltyState</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">setState</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="n">_voucher</span> <span class="o">=</span> <span class="n">state</span><span class="p">.</span><span class="n">voucher</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nl">child:</span> <span class="n">SafeArea</span><span class="p">(</span>
+        <span class="nl">child:</span> <span class="n">SingleChildScrollView</span><span class="p">(</span>
+            <span class="nl">child:</span> <span class="n">Column</span><span class="p">(</span>
+                <span class="nl">children:</span> <span class="o">&lt;</span><span class="n">Widget</span><span class="o">&gt;</span><span class="p">[</span>
+                    <span class="n">VoucherInfo</span><span class="p">(</span><span class="nl">voucher:</span> <span class="n">_voucher</span><span class="p">),</span>
+                <span class="p">],</span>
+            <span class="p">),</span>
+        <span class="p">),</span>
+    <span class="p">),</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="renaming.html" class="btn btn-neutral float-right" title="Project Renaming" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="design.html" class="btn btn-neutral float-left" title="Design" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Zoran Juric
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

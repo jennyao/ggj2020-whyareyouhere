@@ -1,0 +1,331 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Design &mdash; Salon Flutter UI Template 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="BLoC Design Pattern" href="bloc.html" />
+    <link rel="prev" title="Localization" href="localization.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Salon Flutter UI Template
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="get_started.html">Get Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structure.html">Source Folder Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linting.html">Code Formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="localization.html">Localization</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Design</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#fonts">Fonts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#app-theme">App Theme</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bloc.html">BLoC Design Pattern</a></li>
+<li class="toctree-l1"><a class="reference internal" href="renaming.html">Project Renaming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Salon Flutter UI Template</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Design</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/design.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="design">
+<h1>Design<a class="headerlink" href="#design" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="fonts">
+<h2>Fonts<a class="headerlink" href="#fonts" title="Permalink to this headline">¶</a></h2>
+<p>Flutter works with custom fonts and you can apply a custom font across an entire app or to individual widgets.</p>
+<ol class="arabic simple">
+<li>Firstly, import the TTF font into project’s <code class="docutils literal notranslate"><span class="pre">assets/fonts/</span></code> folder:</li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>├── assets
+│   ├── fonts
+│   │   ├── Raleway-Black.ttf
+│   │   ├── Raleway-BlackItalic.ttf
+│   │   ├── Raleway-Bold.ttf
+│   │   ├── Raleway-BoldItalic.ttf
+│   │   ├── Raleway-ExtraBold.ttf
+│   │   ├── Raleway-ExtraBoldItalic.ttf
+│   │   ├── Raleway-ExtraLight.ttf
+│   │   ├── Raleway-ExtraLightItalic.ttf
+│   │   ├── Raleway-Italic.ttf
+│   │   ├── Raleway-Light.ttf
+│   │   ├── Raleway-LightItalic.ttf
+│   │   ├── Raleway-Medium.ttf
+│   │   ├── Raleway-MediumItalic.ttf
+│   │   ├── Raleway-Regular.ttf
+│   │   ├── Raleway-SemiBold.ttf
+│   │   ├── Raleway-SemiBoldItalic.ttf
+│   │   ├── Raleway-Thin.ttf
+│   │   └── Raleway-ThinItalic.ttf
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li>And then add the fonts declaration into <code class="docutils literal notranslate"><span class="pre">pubspec.yaml</span></code> file:</li>
+</ol>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">fonts</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">family</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Raleway</span>
+    <span class="nt">fonts</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">asset</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">assets/fonts/Raleway-Black.ttf</span>
+      <span class="p p-Indicator">-</span> <span class="nt">asset</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">assets/fonts/Raleway-BlackItalic.ttf</span>
+      <span class="p p-Indicator">-</span> <span class="nt">asset</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">assets/fonts/Raleway-Bold.ttf</span>
+      <span class="p p-Indicator">-</span> <span class="nt">asset</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">assets/fonts/Raleway-BoldItalic.ttf</span>
+      <span class="p p-Indicator">-</span> <span class="nt">asset</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">assets/fonts/Raleway-ExtraBold.ttf</span>
+      <span class="p p-Indicator">-</span> <span class="nt">asset</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">assets/fonts/Raleway-ExtraBoldItalic.ttf</span>
+      <span class="p p-Indicator">-</span> <span class="nt">asset</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">assets/fonts/Raleway-ExtraLight.ttf</span>
+      <span class="p p-Indicator">-</span> <span class="nt">asset</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">assets/fonts/Raleway-ExtraLightItalic.ttf</span>
+      <span class="p p-Indicator">-</span> <span class="nt">asset</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">assets/fonts/Raleway-Italic.ttf</span>
+      <span class="p p-Indicator">-</span> <span class="nt">asset</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">assets/fonts/Raleway-Light.ttf</span>
+      <span class="p p-Indicator">-</span> <span class="nt">asset</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">assets/fonts/Raleway-LightItalic.ttf</span>
+      <span class="p p-Indicator">-</span> <span class="nt">asset</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">assets/fonts/Raleway-Medium.ttf</span>
+      <span class="p p-Indicator">-</span> <span class="nt">asset</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">assets/fonts/Raleway-MediumItalic.ttf</span>
+      <span class="p p-Indicator">-</span> <span class="nt">asset</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">assets/fonts/Raleway-Regular.ttf</span>
+      <span class="p p-Indicator">-</span> <span class="nt">asset</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">assets/fonts/Raleway-SemiBold.ttf</span>
+      <span class="p p-Indicator">-</span> <span class="nt">asset</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">assets/fonts/Raleway-SemiBoldItalic.ttf</span>
+      <span class="p p-Indicator">-</span> <span class="nt">asset</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">assets/fonts/Raleway-Thin.ttf</span>
+      <span class="p p-Indicator">-</span> <span class="nt">asset</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">assets/fonts/Raleway-ThinItalic.ttf</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li>Finally, set the default font by setting the variable <code class="docutils literal notranslate"><span class="pre">kFontFamily</span></code> in <code class="docutils literal notranslate"><span class="pre">constants.dart</span></code> file to <cite>Raleway</cite>:</li>
+</ol>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span> <span class="kt">String</span> <span class="n">kFontFamily</span> <span class="o">=</span> <span class="s1">&#39;Raleway&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>If you want to apply the font to a specific widget only, such as a <code class="docutils literal notranslate"><span class="pre">Text</span></code> widget, provide a <code class="docutils literal notranslate"><span class="pre">TextStyle</span></code> to the widget:</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="n">Text</span><span class="p">(</span>
+    <span class="s1">&#39;Raleway sample&#39;</span><span class="p">,</span>
+    <span class="nl">style:</span> <span class="n">TextStyle</span><span class="p">(</span><span class="nl">fontFamily:</span> <span class="s1">&#39;Raleway&#39;</span><span class="p">),</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">To use the system font on both platforms set the <code class="docutils literal notranslate"><span class="pre">kFontFamily</span></code> to <code class="docutils literal notranslate"><span class="pre">null</span></code>.</p>
+</div>
+</div>
+<div class="section" id="app-theme">
+<h2>App Theme<a class="headerlink" href="#app-theme" title="Permalink to this headline">¶</a></h2>
+<p>To share a Theme across an entire app, we provide a custom <code class="docutils literal notranslate"><span class="pre">ThemeData</span></code> to the <code class="docutils literal notranslate"><span class="pre">MaterialApp</span></code> constructor using <code class="docutils literal notranslate"><span class="pre">AppTheme</span></code> class which provides the default light and dark themes.</p>
+<p><code class="docutils literal notranslate"><span class="pre">lib/main_app.dart</span></code></p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="n">MaterialApp</span><span class="p">(</span>
+<span class="hll">    <span class="nl">theme:</span> <span class="n">getIt</span><span class="p">.</span><span class="kd">get</span><span class="o">&lt;</span><span class="n">AppTheme</span><span class="o">&gt;</span><span class="p">().</span><span class="n">lightTheme</span><span class="p">,</span>
+</span><span class="hll">    <span class="nl">darkTheme:</span> <span class="n">getIt</span><span class="p">.</span><span class="kd">get</span><span class="o">&lt;</span><span class="n">AppTheme</span><span class="o">&gt;</span><span class="p">().</span><span class="n">darkTheme</span><span class="p">,</span>
+</span>    <span class="p">...</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">lib/configs/app_theme.dart</span></code></p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">AppTheme</span> <span class="p">{</span>
+    <span class="n">AppTheme</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">lightTheme</span> <span class="o">=</span> <span class="n">ThemeData</span><span class="p">(</span>
+            <span class="nl">fontFamily:</span> <span class="n">kFontFamily</span><span class="p">,</span>
+            <span class="nl">brightness:</span> <span class="n">Brightness</span><span class="p">.</span><span class="n">light</span><span class="p">,</span>
+            <span class="p">...</span>
+        <span class="p">);</span>
+
+        <span class="n">darkTheme</span> <span class="o">=</span> <span class="n">ThemeData</span><span class="p">(</span>
+            <span class="nl">fontFamily:</span> <span class="n">kFontFamily</span><span class="p">,</span>
+            <span class="nl">brightness:</span> <span class="n">Brightness</span><span class="p">.</span><span class="n">dark</span><span class="p">,</span>
+            <span class="p">...</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="hll">    <span class="n">ThemeData</span> <span class="n">lightTheme</span><span class="p">;</span>
+</span><span class="hll">    <span class="n">ThemeData</span> <span class="n">darkTheme</span><span class="p">;</span>
+</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="bloc.html" class="btn btn-neutral float-right" title="BLoC Design Pattern" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="localization.html" class="btn btn-neutral float-left" title="Localization" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Zoran Juric
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,385 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Localization &mdash; Salon Flutter UI Template 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Design" href="design.html" />
+    <link rel="prev" title="Code Formatting" href="linting.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Salon Flutter UI Template
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="get_started.html">Get Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structure.html">Source Folder Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linting.html">Code Formatting</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Localization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#install-flutter-intl">Install Flutter Intl</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#vs-code">VS Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#android-studio">Android Studio</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#package-dependencies">Package dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#app-setup">App setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-new-locales">Adding new locales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#arb-files">ARB files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#placeholders">Placeholders</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#plurals">Plurals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#selects">Selects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newlines">Newlines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#localizing-dart-code">Localizing Dart code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="design.html">Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bloc.html">BLoC Design Pattern</a></li>
+<li class="toctree-l1"><a class="reference internal" href="renaming.html">Project Renaming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="credits.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Salon Flutter UI Template</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Localization</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/localization.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="localization">
+<h1>Localization<a class="headerlink" href="#localization" title="Permalink to this headline">¶</a></h1>
+<p>Salon Flutter template supports localization, including message translation, plurals and genders, date/number formatting and parsing, and bidirectional text.</p>
+<p>Localization is implemented using <strong>Flutter Intl</strong> plugin created by <a class="reference external" href="https://localizely.com/">Localizely</a>. This plugin is available for <a class="reference external" href="https://plugins.jetbrains.com/plugin/13666-flutter-intl">IntelliJ IDEA / Android Studio</a> and <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=localizely.flutter-intl">Visual Studio Code</a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Don’t confuse the <a class="reference external" href="https://pub.dev/packages/intl">Intl</a> package with the Flutter Intl IDE plugin. The latter handles generating the classes that use the former.</p>
+</div>
+<div class="section" id="install-flutter-intl">
+<h2>Install Flutter Intl<a class="headerlink" href="#install-flutter-intl" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="vs-code">
+<h3>VS Code<a class="headerlink" href="#vs-code" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Bring up the Extensions view by clicking on the Extensions icon in the Activity Bar on the side of VS Code or the View: Extensions command.</li>
+<li>Type <code class="docutils literal notranslate"><span class="pre">intl</span></code> in the Search box and press ENTER.</li>
+<li>Locate the Flutter Intl plugin in the list and click on the green Install button.</li>
+</ul>
+<img alt="_images/vsc-install-intl.png" src="_images/vsc-install-intl.png" />
+</div>
+<div class="section" id="android-studio">
+<h3>Android Studio<a class="headerlink" href="#android-studio" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Open Android Studio’s preferences by pressing Command+(comma) on macOS or Control+Alt+S on Linux or Windows.</li>
+<li>Select Plugins on the left-side panel and Marketplace in the upper tab bar.</li>
+<li>Type <code class="docutils literal notranslate"><span class="pre">intl</span></code> in the search bar.</li>
+<li>Locate the Flutter Intl plugin in the search result list and click on the green Install button.</li>
+</ul>
+<img alt="_images/astudio-install-intl.png" src="_images/astudio-install-intl.png" />
+</div>
+</div>
+<div class="section" id="package-dependencies">
+<h2>Package dependencies<a class="headerlink" href="#package-dependencies" title="Permalink to this headline">¶</a></h2>
+<p>Plugin is configured through package dependencies specified in <code class="docutils literal notranslate"><span class="pre">pubmed.yaml</span></code>:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">dependencies</span><span class="p">:</span>
+<span class="nt">flutter</span><span class="p">:</span>
+    <span class="nt">sdk</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">flutter</span>
+<span class="nt">flutter_localizations</span><span class="p">:</span>
+    <span class="nt">sdk</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">flutter</span>
+<span class="nt">flutter_intl</span><span class="p">:</span>
+    <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span> <span class="c1"># Required. Must be set to true to activate the plugin. Default: false</span>
+    <span class="nt">class_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">L10n</span> <span class="c1"># Optional. Sets the name for the generated localization class. Default: S</span>
+    <span class="nt">main_locale</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">en</span> <span class="c1"># Optional. Sets the main locale used for generating localization files. Provided value should consist of language code and optional script and country codes separated with underscore (e.g. &#39;en&#39;, &#39;en_GB&#39;, &#39;zh_Hans&#39;, &#39;zh_Hans_CN&#39;). Default: en</span>
+</pre></div>
+</div>
+<p>By default <code class="docutils literal notranslate"><span class="pre">en</span></code> locale is added by auto-creating a file <code class="docutils literal notranslate"><span class="pre">lib/l10n/intl_en.arb</span></code>.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The plugin generates and maintains files inside <code class="docutils literal notranslate"><span class="pre">lib/generated/</span></code> folder which you should not edit manually.
+But you should keep these files in your project repository.</p>
+</div>
+</div>
+<div class="section" id="app-setup">
+<h2>App setup<a class="headerlink" href="#app-setup" title="Permalink to this headline">¶</a></h2>
+<p>Locate the <code class="docutils literal notranslate"><span class="pre">lib/main_app.dart</span></code> file. Setup your <code class="docutils literal notranslate"><span class="pre">localizationsDelegates</span></code> and your <code class="docutils literal notranslate"><span class="pre">supportedLocales</span></code> which will allow to access the strings.</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span>import &#39;generated/l10n.dart&#39;;
+import &#39;package:flutter_localizations/flutter_localizations.dart&#39;;
+
+return MaterialApp(
+    debugShowCheckedModeBanner: false,
+<span class="hll">    supportedLocales: L10n.delegate.supportedLocales, # Supported locales
+</span><span class="hll">    localizationsDelegates: const &lt;LocalizationsDelegate&lt;dynamic&gt;&gt;[
+</span><span class="hll">        L10n.delegate, # Localization delegate class
+</span><span class="hll">        GlobalMaterialLocalizations.delegate,
+</span><span class="hll">        GlobalWidgetsLocalizations.delegate,
+</span><span class="hll">        GlobalCupertinoLocalizations.delegate,
+</span><span class="hll">        FallbackCupertinoLocalisationsDelegate(),
+</span><span class="hll">    ],
+</span><span class="hll">    localeResolutionCallback: (Locale locale, Iterable&lt;Locale&gt; supportedLocales) {
+</span><span class="hll">        return kDefaultLocale;
+</span><span class="hll">    },
+</span>    navigatorObservers: &lt;NavigatorObserver&gt;[routeObserver],
+    onGenerateRoute: route.generateRoute,
+    theme: getIt.get&lt;AppTheme&gt;().lightTheme,
+    darkTheme: getIt.get&lt;AppTheme&gt;().darkTheme,
+    home: homeWidget,
+);
+</pre></div>
+</div>
+<p>To enable localization for iOS apps, extend <code class="docutils literal notranslate"><span class="pre">ios/Runner/Info.plist</span></code> file with supported locales configuration. This list should be consistent with the locales listed in the <code class="docutils literal notranslate"><span class="pre">lib/l10n</span></code> folder.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;key&gt;</span>CFBundleLocalizations<span class="nt">&lt;/key&gt;</span>
+<span class="nt">&lt;array&gt;</span>
+    <span class="nt">&lt;string&gt;</span>en<span class="nt">&lt;/string&gt;</span>
+    <span class="nt">&lt;string&gt;</span>de_DE<span class="nt">&lt;/string&gt;</span>
+    ...
+<span class="nt">&lt;/array&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="adding-new-locales">
+<h2>Adding new locales<a class="headerlink" href="#adding-new-locales" title="Permalink to this headline">¶</a></h2>
+<p>You can always add more locales when needed.
+For Visual Studio Code use the command <strong>Flutter Intl: Add locale</strong>. For Android Studio select <strong>Tools &gt; Flutter Intl &gt; Add Locale</strong>.
+Type in the language code (e.g. de_DE) an press enter (click on OK button).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">lib/l10n</span></code> folder will contain a new file — intl_XX.arb where XX is the language code you just typed in. Don’t forget to include this language code into iOS’ Info.plist file as well!</p>
+</div>
+<div class="section" id="arb-files">
+<h2>ARB files<a class="headerlink" href="#arb-files" title="Permalink to this headline">¶</a></h2>
+<p>ARB files extension stands for Application Resource Bundle and is used by the Dart Intl package. It is actually a JSON file intended for localization, with <code class="docutils literal notranslate"><span class="pre">.arb</span></code> extension. Since it is based on JSON, it just defines standardized ways how to add more information around key-value pairs.
+It is supported by Google and is official localization library for Dart.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">When you add new key-value pairs to an <code class="docutils literal notranslate"><span class="pre">.arb</span></code> file and save it, those keys will be automatically available for auto-complete in your Dart code.</p>
+</div>
+<p>Specific features for ARB file relevant for Flutter apps are:</p>
+<div class="section" id="placeholders">
+<h3>Placeholders<a class="headerlink" href="#placeholders" title="Permalink to this headline">¶</a></h3>
+<p>Placeholder is marked by curly brackets. Variable name inside <code class="docutils literal notranslate"><span class="pre">{}</span></code> must be a valid identifier, like <code class="docutils literal notranslate"><span class="pre">{firstName}</span></code>.</p>
+</div>
+<div class="section" id="plurals">
+<h3>Plurals<a class="headerlink" href="#plurals" title="Permalink to this headline">¶</a></h3>
+<p>Plurals are defined with <a class="reference external" href="http://userguide.icu-project.org/formatparse/messages">ICU syntax</a>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;homeInboxCount&quot;</span> <span class="p">:</span> <span class="s2">&quot;{count, plural, zero{You have no new messages} one{You have 1 new message} other{You have </span><span class="si">{count}</span><span class="s2"> new messages}}&quot;</span><span class="p">,</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="selects">
+<h3>Selects<a class="headerlink" href="#selects" title="Permalink to this headline">¶</a></h3>
+<p>Custom selects are defined with <a class="reference external" href="http://userguide.icu-project.org/formatparse/messages">ICU syntax</a>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;commonDarkMode&quot;</span><span class="p">:</span> <span class="s2">&quot;{mode, select, dynamic </span><span class="si">{Dynamic}</span><span class="s2"> alwaysOn {Always on} alwaysOff {Always off} other </span><span class="si">{Unknown}</span><span class="s2">}&quot;</span><span class="p">,</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">other</span></code> option must be defined!</p>
+</div>
+<div class="section" id="newlines">
+<h3>Newlines<a class="headerlink" href="#newlines" title="Permalink to this headline">¶</a></h3>
+<p>A new line must be escaped with a <cite>n</cite> character.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;homeTitle&quot;</span><span class="p">:</span> <span class="s2">&quot;Welcome,</span><span class="se">\n</span><span class="si">{firstName}</span><span class="s2">&quot;</span><span class="p">,</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="localizing-dart-code">
+<h2>Localizing Dart code<a class="headerlink" href="#localizing-dart-code" title="Permalink to this headline">¶</a></h2>
+<p>The ARB file’s keys now correspond to methods from the <code class="docutils literal notranslate"><span class="pre">S</span></code> class (<code class="docutils literal notranslate"><span class="pre">L10n</span></code> in our case). For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;signInButtonLogin&quot;</span><span class="p">:</span> <span class="s2">&quot;Login&quot;</span><span class="p">,</span>
+</pre></div>
+</div>
+<p>is used in <code class="docutils literal notranslate"><span class="pre">ThemeButton</span></code> widget like this:</p>
+<div class="highlight-dart notranslate"><div class="highlight"><pre><span></span><span class="n">ThemeButton</span><span class="p">(</span>
+    <span class="nl">onPressed:</span> <span class="n">_validateForm</span><span class="p">,</span>
+<span class="hll">    <span class="nl">text:</span> <span class="n">L10n</span><span class="p">.</span><span class="n">of</span><span class="p">(</span><span class="n">context</span><span class="p">).</span><span class="n">signInButtonLogin</span><span class="p">,</span>
+</span>    <span class="nl">showLoading:</span> <span class="n">login</span> <span class="k">is</span> <span class="n">ProcessingAuthState</span><span class="p">,</span>
+    <span class="nl">disableTouchWhenLoading:</span> <span class="kc">true</span><span class="p">,</span>
+<span class="p">),</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="design.html" class="btn btn-neutral float-right" title="Design" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="linting.html" class="btn btn-neutral float-left" title="Code Formatting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Zoran Juric
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

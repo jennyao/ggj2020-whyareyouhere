@@ -1,0 +1,93 @@
+===========
+Get Started
+===========
+
+Installation
+============
+
+Follow the steps below to get started with your Flutter UI template:
+
+#. Extract the downloaded ZIP file.
+#. Locate the ``/Source`` folder with all the Dart source code.
+#. Open the source code folder with a text editor of your choice (e.g. Android Studio or Visual Studio Code).
+
+You can use any text editor combined with Flutter command-line tools.
+However, it is recommend using one of Flutter editor plugins for an even better experience. These plugins provide you with code completion, syntax highlighting, widget editing assists, run & debug support, and more.
+
+To setup an editor `follow these steps <https://flutter.dev/docs/get-started/editor>`_.
+
+Google Maps setup
+=================
+
+To use Google Maps in your Flutter app, you need to configure an API project with the `Google Maps Platform <https://developers.google.com/maps/documentation/android-sdk/get-api-key>`_, following both the `Maps SDK for Android Get API key <https://developers.google.com/maps/documentation/android-sdk/get-api-key>`_, and `Maps SDK for iOS Get API key <https://developers.google.com/maps/documentation/ios-sdk/get-api-key>`_ processes. 
+
+.. note::
+
+    While it's technically possible to use the same Maps API key for both iOS and Android, it is not recommended. 
+
+With API keys in hand, carry out the following steps to configure both Android and iOS applications. 
+
+Adding an API key for an Android app
+------------------------------------
+
+To add an API key to the Android app, edit the ``AndroidManifest.xml`` file in ``android/app/src/main``:
+
+.. code-block:: html
+
+    <meta-data android:name="com.google.android.geo.API_KEY" android:value="YOUR-API-KEY"/>
+
+Adding an API key for an iOS app
+--------------------------------
+
+To add an API key to the iOS app, edit the ``AppDelegate.swift`` file in ``ios/Runner``. Unlike Android, adding an API key on iOS requires changes to the source code of the Runner app:
+
+::
+
+    GMSServices.provideAPIKey("YOUR-API-KEY")
+
+Running the App
+===============
+
+Android Studio
+--------------
+
+- Locate the main Android Studio toolbar:
+
+.. image:: _static/astudio-toolbar.png
+
+- In the target selector, select an Android device for running the app. If none are listed as available, select Tools > Android > AVD Manager and create one there. For details, see `Managing AVDs <https://developer.android.com/studio/run/managing-avds>`_.
+
+- Click the run icon in the toolbar, or invoke the menu item Run > Run.
+
+Visual Studio Code
+------------------
+
+- In order to be able to run the app you will need to download the packages specified in the ``pubspec.yaml`` file. On your first VS Code run you will be asked to do so:
+
+.. image:: _static/vsc-packages.png
+
+You might also need to upgrade the Flutter itself. Go to View > Command Palette and type in ``Flutter Upgrade``.
+
+.. image:: _static/vsc-upgrade.png
+
+- Locate the Visual Studio Code status bar (the blue bar at the bottom of the window):
+
+.. image:: _static/vsc-statusbar.png
+
+- Select a device from the Device Selector area. If you have multiple devices or simulators connected then there are a number of ways to quickly switch between them:
+
+    * Clicking on the currently selected device in the status bar
+    * Executing the **Flutter: Select Device**
+
+- Invoke Run > Start Debugging or press F5.
+
+- Wait for the app to launch — progress is printed in the Debug Console view.
+
+.. note::
+
+    If no device is available and you want to use a device simulator, click No Devices and launch a simulator.
+    To setup a real device, follow the device-specific instructions on the `Install <https://flutter.dev/docs/get-started/install>`_ page for your OS.
+
+    If your device or simulator is not listed then Flutter may not have detected it. 
+    If using a physical device please ensure USB debugging is enabled and/or disconnect and reconnect your device. 
+    If using a simulator try restarting it. Run ``flutter doctor -v`` for additional troubleshooting.

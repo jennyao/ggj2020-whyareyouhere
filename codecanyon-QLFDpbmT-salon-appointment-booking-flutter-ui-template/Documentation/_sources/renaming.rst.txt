@@ -1,0 +1,123 @@
+================
+Project Renaming
+================
+
+Project Name
+============
+
+iOS
+----
+
+Locate the ``Info.plist`` file in the ``ios/Runner`` folder. Modify the ``CFBundleName`` and ``CFBundleDisplayName`` values.
+
+.. code-block:: xml
+    :emphasize-lines: 3,5
+
+    <dict>
+        <key>CFBundleName</key>
+        <string>salon</string>
+        <key>CFBundleDisplayName</key>
+        <string>Salon</string>
+        ...
+    </dict>
+
+``CFBundleDisplayName`` specifies the display name of the bundle. This value will be shown under the app's icon and in notifications.
+
+
+Android
+-------
+
+Open the ``AndroidManifest.xml`` file located in the ``android/app/src/main/`` folder. Set the ``android:label`` value to your project's name.
+
+.. code-block:: xml
+    :emphasize-lines: 3
+
+    <application
+            android:name="io.flutter.app.FlutterApplication"
+            android:label="Salon"
+            android:icon="@mipmap/ic_launcher">
+
+Project Bundle ID
+=================
+
+A bundle identifier lets iOS/Android recognize any updates to your app. Your bundle ID must be registered with Apple/Google and be unique to your app.
+Bundle identifiers are usually (not always) written out in reverse DNS notation (i.e com.myCompany.myApp).
+
+iOS
+---
+
+Open the ``Runner.xcworkspace`` file located in the ``ios`` folder with Xcode.
+In the Project Navigator select the Runner app, then click on the Runner in TARGETS. Under the General tab, look for the Bundle Identifier in the Identity section and modify it.
+
+.. image:: _static/xcode-identity.png
+
+Android
+-------
+
+Locate the ``build.gradle`` file in the ``android/app`` folder and modify the ``applicationId`` value.
+
+.. code-block:: gradle
+    :emphasize-lines: 14
+
+    android {
+        compileSdkVersion 28
+
+        sourceSets {
+            main.java.srcDirs += 'src/main/kotlin'
+        }
+
+        lintOptions {
+            disable 'InvalidPackage'
+        }
+
+        defaultConfig {
+            // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+            applicationId "rs.zj.salon"
+            // We need at least 21 for camera plugin.
+            minSdkVersion 21
+            targetSdkVersion 28
+            versionCode flutterVersionCode.toInteger()
+            versionName flutterVersionName
+        }
+    }
+
+More details can be found in the `Android Studio User Guide on how to Set the application ID <https://developer.android.com/studio/build/application-id.html>`_.
+
+App Icons
+=========
+
+I recommend using specialized tools for icon generation like `EasyAppIcon (Web tool) <https://easyappicon.com/>`_ or `Icon Set Creator (OSX tool) <https://apps.apple.com/de/app/icon-set-creator/id939343785?l=en&mt=12>`_ which can generate platform specific files for your app. You will need one high-res image of your app icon.
+
+A good starting point for creating new icon can be using the Salon's icon source files located in ``/Assets/Logo`` folder of the downloaded zip file.
+
+iOS
+---
+
+Open the ``Runner.xcworkspace`` file located in the ``ios`` folder with Xcode.
+In the Project Navigator open the Runner app list and click on the ``Assets.xcassets`` file. Now, click on the AppIcon in the assets catalog.
+
+You will need to drag&drop all the pre-made icons and replace the existing ones.
+
+.. image:: _static/xcode-assets.png
+
+Also, you can right-click on AppIcon and select Import if you have a pre-made icon set.
+
+Android
+-------
+
+I recommend using the above mentioned tool (`EasyAppIcon <https://easyappicon.com/>`_) since it will create all the required files needed for the proper Android app icon generation. 
+
+Files to be replaced are located in ``android/app/src/main/res/`` folder under the ``mipmap-`` subfolders. 
+
+.. image:: _static/astudio-mipmap.png
+
+In case you want to use a different icon file name you can specify it's name in the ``AndroidManifest.xml`` file:
+
+.. code-block:: xml
+    :emphasize-lines: 4,5
+
+    <application
+        android:name="io.flutter.app.FlutterApplication"
+        android:label="Salon"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round">

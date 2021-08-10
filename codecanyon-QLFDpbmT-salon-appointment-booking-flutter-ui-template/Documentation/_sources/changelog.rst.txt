@@ -1,0 +1,66 @@
+=========
+Changelog
+=========
+
+v1.3.0 - Nov 12, 2020
+---------------------
+
+- New: Zoomable photo gallery
+- Support for BLoC 6.1.0
+
+New files:
+
+``photo_view.dart``
+
+Modified files:
+
+``pubspec.yaml``
+``routes.dart``
+``photo_gallery.dart``
+``booking_step1.dart``
+``booking_step2.dart``
+``booking_step3.dart``
+``booking_step4.dart``
+
+
+v1.2.2 - Oct 27, 2020
+---------------------
+This version addresses the bug where ``FilterButton`` widget (used on appointments and location search screens) was not translated after language change.
+
+Modified files:
+
+``pubspec.yaml``
+``main_app.dart``
+``main.dart``
+``toolbar_option_model.dart``
+``appointments.dart``
+``appointments_toolbar.dart``
+``take_picture.dart``
+``search.dart``
+``filter_button.dart``
+
+Removed files:
+
+``appointments_sort.dart``
+``appointments_status_group.dart``
+
+v1.2.1 - Oct 21, 2020
+---------------------
+- Fixed: Support for `flutter_cache_manager 2.0.0 <https://pub.dev/packages/flutter_cache_manager>`_
+
+v1.2.0 - Oct 20, 2020
+---------------------
+- New: Remote logging via `logz.io <https://logz.io>`_
+- Fixed: SharedPreferences initialization caused app to hang in release mode
+
+v1.1.0 - Oct 15, 2020
+---------------------
+
+- New: RTL support
+- Fixed: Switching languages
+- Fixed: Many layout issues on smaller screens
+
+v1.0.0 - Oct 07, 2020
+---------------------
+
+Initial release.

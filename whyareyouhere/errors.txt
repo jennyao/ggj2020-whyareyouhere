@@ -1,0 +1,10 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/script.rpy", line 39: end of line expected.
+    e "Hello! I see you're alone. Where are you from?":
+                                                      ^
+
+Ren'Py Version: Ren'Py 7.3.5.606
+Sun Feb 02 16:06:29 2020

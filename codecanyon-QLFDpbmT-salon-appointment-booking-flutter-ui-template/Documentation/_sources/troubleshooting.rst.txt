@@ -1,0 +1,33 @@
+===============
+Troubleshooting
+===============
+
+The named parameter 'vsync' isn't defined.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you get this error in IDE for ``AnimationController`` class try the following:
+
+1. Restart the IDE (weird but works in 99% of cases), or
+2. Run Flutter Upgrade from View > Command Palette.
+
+New version of Google Maps SDK for iOS available: 3.X.X.X
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Open terminal and browse to ``ios`` folder in your project structure.
+
+Run ``pod update``.
+
+The application's Info.plist does not contain CFBundleVersion
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Follow the intructrions found on `StackOverflow <https://stackoverflow.com/a/59806545>`_ to fix this issue.
+
+No implementation found for method getAll on channel plugins.flutter.io/shared_preferences
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This happens only in release build. The only solution so far is to either:
+
+- Downgrade gradle to ``com.android.tools.build:gradle:3.5.1``, or to
+- build apk with ``--no-shrink`` option.
+
+More details can be found on `github.com/flutter/flutter/issues/65334 <https://github.com/flutter/flutter/issues/65334>`_.

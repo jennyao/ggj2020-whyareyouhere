@@ -1,0 +1,48 @@
+=======================
+Source Folder Structure
+=======================
+
+::
+
+    ├── android # Android source code
+    ├── assets # Assets folder
+    │   ├── data # JSON data
+    │   ├── fonts # Google TTF fonts
+    │   └── images # Images used in app
+    │    
+    ├── build # Build folder (initially empty)
+    ├── ios # iOS source code
+    ├── lib # Flutter source code
+    │   ├── blocs
+    │   │   ├── application # App-wide bloc events and states
+    │   │   ├── appointment # Appointment related bloc events and states
+    │   │   ├── auth # User authentication bloc events and states
+    │   │   ├── booking # Booking bloc events and states
+    │   │   ├── chat # Chat bloc events and states
+    │   │   ├── cities # City search bloc events and states
+    │   │   ├── favorites # Favorites list bloc events and states
+    │   │   ├── loyalty # Vouchers bloc events and states
+    │   │   ├── ratings # Location ratings bloc events and states
+    │   │   ├── search # Location search bloc events and states
+    │   │   ├── theme # Theme switch bloc events and states
+    │   │   ├── app_observer.dart # An interface for observing and logging the behavior of blocs
+    │   │   └── base_bloc.dart # Abstract base bloc
+    │   │
+    │   ├── configs # Configuration files for app-wide constants
+    │   ├── data # Data models and repositories
+    │   │   ├── models # Data models
+    │   │   ├── repositories # Data repositories
+    │   │   └── data_provider.dart # Generic mechanism for loading models from JSON files
+    │   │   
+    │   ├── generated # Auto-generated files by Flutter Intl plugin
+    │   ├── l10n # ARB localization files
+    │   ├── screens # Widgets for each screen
+    │   ├── utils # Utility functions and extensions
+    │   ├── widgets # Generic widgets
+    │   ├── main_app.dart # Main application widget
+    │   └── main.dart # Main application file
+    │
+    ├── test # Test libraries (not used)
+    ├── analysis_options.yaml # Linter analysis options
+    ├── pubspec.yaml # Package definitions
+    └── README.md # Readme file
